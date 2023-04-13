@@ -374,3 +374,117 @@ Packing collect multiple variable’s values and assign it to a single variable
 Unpacking help us assign certain values from a tuple to different variables
 
 This becomes very useful skill when combined with variable arguments for Function Definition and Function Calls
+
+__Lesson 4: Sets__
+
+__Sets in Python 3
+
+A set is an unordered collection with no duplicate elements in Python 3.
+
+Set is a mathematical way to describe collection of different unique objects.
+
+By following the operations and characteristics of the mathematical set, we can utilizie such data structure in our Python code.
+
+__Using Sets in Python 3__
+_How to define a set_
+```python 3
+# Set definition examples:
+example_set1 = {1, 2, 3}
+example_set2 = {'h','e','l','l','o'}
+
+print('example_set1:', example_set1)
+print('example_set2:', example_set2) # Notice there is only 1 'l'; Also notice the order of the values outputted
+print('--')
+
+singleton_set = {7}
+empty_set = set() # this is because {} is reversed for a different feature in python 3.
+
+print('Singleton:', singleton_set)
+print('Empty Set:', empty_set)
+```
+example_set1: {1, 2, 3}
+example_set2: {'o', 'e', 'h', 'l'}
+--
+Singleton: {7}
+Empty Set: set()
+
+__Basic built-in functions with sets__
+```python 3
+# Basic Built-in Functions w/ Sets
+
+example_set = set('hello') # set() turns an iterable into a set
+print('example_set:', example_set)
+print('--')
+
+print('Number of Values:', len(example_set)) # length function
+print('Minimum Value:', min(example_set)) # min function
+print('Maximum Value:', max(example_set)) # max function
+print('--')
+
+# tuple to set
+tup = (2,3,5,7)
+print('tup to set:', set(tup))
+
+# list to set
+array = ['orange']*2 +  ['watermelon', 'apple'] + ['kiwi'] * 10
+print('Original Array:', array)
+print('list to set:', set(array))
+```
+example_set: {'o', 'e', 'h', 'l'}
+
+Number of Values: 4
+
+Minimum Value: e
+
+Maximum Value: o
+
+tup to set: {2, 3, 5, 7}
+
+Original Array: ['orange', 'orange', 'watermelon', 'apple', 'kiwi', 'kiwi', 'kiwi', 'kiwi', 'kiwi', 'kiwi', 'kiwi', 'kiwi', 'kiwi', 'kiwi']
+
+list to set: {'watermelon', 'orange', 'apple', 'kiwi'}
+
+__Basic Membership Operators__
+
+Membership is one of the key operations with set because:
+
+- A set has no duplicates
+- A set’s membership operation is one of the fastest operations compared to strings, lists, or tuples this will be covered more when we look at the concept of: complexity
+- By using membership operator, we can be certain a target exists or does not exist in our data
+```python 3
+# Membership Example
+example_set = set('hello')
+
+print("Membership of: \'h\'", 'h' in example_set)
+print("Non-Membership of: \'z\'", 'z' not in example_set)
+```
+Membership of: 'h' True
+
+Non-Membership of: 'z' True
+
+__Accessing Values in a Set__
+
+- Due to its unordered nature of a set, there is no concept of indexing or slicing with a set.
+- Set is however iterable.
+
+__Set Comprehension__
+```python 3 
+# Set Comprehension Example
+def isPalindrome(x):
+    ''' isPalindrome() returns True if string X is a palindrome '''
+    return x == x[::-1]
+
+nums = list(range(1,10000))
+palindromic_set = {num for num in nums if isPalindrome(str(num))}
+
+print('Palindromic Numbers Set from 1 to 10000:')
+print(palindromic_set)
+```
+__Ending Notes on sets for Python__
+- Sets aren’t sliceable nor indexable
+- Sets cannot have sets inside them
+- Sets do not have order; nor order of insertion
+- Sets cannot guarantee that their values will be in order
+- Sets do not record a value’s position
+
+__Lesson 5: Dictionary__
