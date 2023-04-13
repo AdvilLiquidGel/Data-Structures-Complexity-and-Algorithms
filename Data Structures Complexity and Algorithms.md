@@ -488,3 +488,117 @@ __Ending Notes on sets for Python__
 - Sets do not record a value’s position
 
 __Lesson 5: Dictionary__
+
+__Dictionary in Python 3__
+
+Dictionary (Associative Array, map, symbol table) is a data type that stores a collection of (key, value) pairs, such that each possible key appears at most once in the collection.
+
+_Common Operations:_
+
+- Adding a pair
+- Removing a pair
+- Modify an existing pair
+- Lookup of a value associated with a particular key
+
+__Defining a Dictionary in Python 3__
+
+Dictionaries also use {} like sets; however, their individual item format is very different.
+
+Each item in a dictionary be a pair of key: value.
+```python 3
+# Dictionary Example
+sammy = {
+    'username': 'sammy',
+    'online': True,
+    'followers': 42
+}
+
+# There are 3 items: each with their unique addresses and value
+# Accessing
+print('Sammy dict:', sammy)
+print('Username:', sammy['username'])
+print('Online Status:', sammy['online'])
+print('Follower Count:', sammy['followers'])
+```
+Sammy dict: {'username': 'sammy', 'online': True, 'followers': 42}
+
+Username: sammy
+
+Online Status: True
+
+Follower Count: 42
+
+__Dictionary Properties__
+
+Each item in a dictionary is a key, value pair.
+
+__Keys__
+
+Keys are unique address for a dictionary value’s location
+
+_Key Properties:_
+
+- Must be immutable (strings, numbers, tuples, frozenset)
+- Unique; therefore, two same key values cannot exist in a single dictionary
+- NEWEST CREATED ITEM with a duplicate KEY superceeds the previous declaration
+
+__Values__
+
+Values of a dictionary within a key can be any data type.
+
+__Updating a Dictionary__
+
+- We can modify existing values by referencing the key
+- We can add new values to a dictionary by creating a new key
+- We can overwrite a value at an existing key by referencing and recreating the value for it
+```python 3 
+# Update Example
+
+sammy = {
+    'username': 'sammy',
+    'online': True,
+    'followers': 42
+}
+
+sammy['followers'] += 10 # We are adding 10 to the value located at key: 'followers'
+sammy['verified'] = True # We added a new value at a new key: 'verified'
+sammy['username'] = 'SammySammy'
+
+print('Sammy Dict:', sammy)
+```
+__dict() Constrcutor Dictionary Comprehension__
+
+We can turn other data types to dictionaries.
+
+Also similar to lists, tuples, and sets, dictionaries also support comprehension.
+
+_Note:_
+
+We must specify where the keys are and where the values.
+```python 3
+# dict() Example
+
+example_data = [
+    ('one', 3),
+    ('two', 3),
+    ('three', 5)
+]
+
+data_dict = dict(example_data)
+print('data_dict:', data_dict)
+print('--')
+
+# Dictionary Comprehension
+# Goal: Take string numerals and assign them with their integer square
+# - keys : string numerals
+# - values: integer squares
+
+example_data2 = ['1', '2', '3', '4', '5']
+
+data2_dict = {x : int(x)**2 for x in example_data2}
+
+print('data2_dict:', data2_dict)
+```
+data_dict: {'one': 3, 'two': 3, 'three': 5}
+
+data2_dict: {'1': 1, '2': 4, '3': 9, '4': 16, '5': 25}
